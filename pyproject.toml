@@ -25,4 +25,4 @@ cmake.version = ">=3.20"
 [tool.cibuildwheel]
 build = "cp310-* cp311-* cp312-* cp313-*"
 skip = "*_i686 *musllinux* pp*"
-test-command = 'python -c "import stim_timeline_text as s; assert \'T\' in str(s.render_timeline_text(\'S[T] 0\'))"'
+test-command = "python -c \"import stim_timeline_text as s; assert 'T' in str(s.render_timeline_text('S[T] 0'))\""
