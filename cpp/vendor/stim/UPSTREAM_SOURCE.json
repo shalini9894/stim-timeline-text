@@ -1,0 +1,8 @@
+{
+  "project": "Stim",
+  "repository": "https://github.com/quantumlib/Stim",
+  "tag": "v1.15.0",
+  "commit": "42e0b9e099180e8570407c33f87b4683cac00d81",
+  "license": "Apache-2.0",
+  "note": "Partial vendored copy. Only the files listed in VENDORED_FILE_ALLOWLIST.txt are included."
+}
