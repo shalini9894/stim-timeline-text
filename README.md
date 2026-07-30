@@ -56,7 +56,7 @@ not reachable from Stim's Python API.
 change marked with a `TSIM MODIFICATION` comment and described in
 [`MODIFICATIONS.md`](cpp/vendor/stim/MODIFICATIONS.md).
 
-Verify for yourself:
+Please have a look:
 
     cd cpp/vendor/stim && sha256sum -c ORIGINAL_SHA256SUMS.txt
 
