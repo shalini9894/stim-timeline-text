@@ -25,6 +25,10 @@ pybind11_add_module(_native MODULE
   cpp/render_timeline_text.cc
   cpp/python_module.cc
 )
+if(MSVC)
+  target_compile_options(_native PRIVATE /utf-8 /EHsc /permissive-)
+endif()
+
 target_include_directories(_native PRIVATE
   "${CMAKE_CURRENT_SOURCE_DIR}/cpp"
   "${CMAKE_CURRENT_SOURCE_DIR}/cpp/vendor/stim/src"
