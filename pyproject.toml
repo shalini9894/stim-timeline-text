@@ -10,7 +10,19 @@ readme = "README.md"
 requires-python = ">=3.10"
 license = "Apache-2.0"
 
+[project.optional-dependencies]
+test = ["pytest>=7", "stim==1.15.0", "bloqade-tsim>=0.1.5"]
+
+[project.urls]
+Homepage = "https://github.com/shalini9894/stim-timeline-text"
+Issues = "https://github.com/shalini9894/stim-timeline-text/issues"
+
 [tool.scikit-build]
 minimum-version = "0.10"
 wheel.packages = ["src/stim_timeline_text"]
 cmake.version = ">=3.20"
+
+[tool.cibuildwheel]
+build = "cp310-* cp311-* cp312-* cp313-*"
+skip = "*_i686 *musllinux* pp*"
+test-command = 'python -c "import stim_timeline_text as s; assert \'T\' in str(s.render_timeline_text(\'S[T] 0\'))"'

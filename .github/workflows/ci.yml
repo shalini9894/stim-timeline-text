@@ -1,0 +1,36 @@
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.11", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install
+        run: pip install -e ".[test]"
+
+      - name: Verify vendored Stim sources
+        working-directory: cpp/vendor/stim
+        run: |
+          set +e
+          sha256sum -c ORIGINAL_SHA256SUMS.txt > result.txt 2>&1
+          set -e
+          ok=$(grep -c ": OK" result.txt || true)
+          echo "byte-identical: $ok of 61"
+          test "$ok" -eq 58
+
+      - name: Run tests
+        run: pytest tests/ -v
