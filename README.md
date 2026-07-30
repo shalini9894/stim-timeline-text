@@ -3,7 +3,7 @@
 Tag-aware ASCII timeline diagrams for [Stim](https://github.com/quantumlib/Stim) circuits.
 
 Simulators built on Stim often express non-Clifford gates as tagged Clifford
-placeholders — a `T` gate stored as `S` carrying the tag `T`, for example.
+placeholders. `T` gate stored as `S` carrying the tag `T`, for example.
 Stim's own timeline renderer discards the tag, so those gates are drawn under
 their placeholder names. This package renders the logical gate instead.
 
