@@ -28,4 +28,4 @@ skip = "*_i686 *musllinux* pp*"
 test-command = "python -c \"import stim_timeline_text as s; assert 'T' in str(s.render_timeline_text('S[T] 0'))\""
 
 [tool.cibuildwheel.macos]
-environment = { MACOSX_DEPLOYMENT_TARGET = "10.15" }
+environment = { MACOSX_DEPLOYMENT_TARGET = "11.0" }
